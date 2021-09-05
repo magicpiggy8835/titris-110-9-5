@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script src="jquery-3.5.1.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: rgb(15, 250, 230);
+    }
+
+    .up {
+        height: 94vh;
+        margin: auto;
+        width: 60vh;
+        background-color: rgba(64, 121, 236, 0.844);
+    }
+
+    .button {
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        padding: 7px 40px;
+        border: 3px solid #000000;
+        border-radius: 9px;
+        background: #87edff;
+        background: -webkit-gradient(linear, left top, left bottom, from(#87edff), to(#0068b8));
+        background: -moz-linear-gradient(top, #87edff, #0068b8);
+        background: linear-gradient(to bottom, #87edff, #0068b8);
+        text-shadow: #224d79 -9px 0px 1px;
+        font: italic normal bold 22px impact;
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase
+    }
+
+    .button:hover {
+        transition-delay: 2s;
+        background: #a2ffff;
+        background: -webkit-gradient(linear, left top, left bottom, from(#a2ffff), to(#007ddd));
+        background: -moz-linear-gradient(top, #a2ffff, #007ddd);
+        background: linear-gradient(to bottom, #a2ffff, #007ddd);
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase
+    }
+
+    .button:active {
+        background: #518e99;
+        background: -webkit-gradient(linear, left top, left bottom, from(#518e99), to(#0068b8));
+        background: -moz-linear-gradient(top, #518e99, #0068b8);
+        background: linear-gradient(to bottom, #518e99, #0068b8);
+        text-transform: uppercase
+    }
+
+    .button:focus {
+        text-transform: uppercase
+    }
+
+    .button:after {
+        content: "\0000a0";
+        display: inline-block;
+        height: 24px;
+        width: 24px;
+        line-height: 24px;
+        margin: 0 -4px -6px 4px;
+        position: relative;
+        top: 1px;
+        left: 14px;
+        background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAClUlEQVRIibWVQWsTURDHf7NJQSx1N6nSUkg23aBIKX4CL4qYgyePgp6FXGzFo5d+AhHx5Em8Ck0Lot5aPEnFk0rBmjbpTZpsXutBSrPjYbPpZpPYiu3AY4f35v3nzW+Z9wSwOEWLxIMh68FJ+MkKrJP2exJMu67luu5AbMVCwSrmcv+E1Ip9LS/npkVZTSmPc6FQz9BAX6hYL72ceya5NmzE/0GAWgHwBWFhRKyFy1NTh2uhrQF3EV55rpuOzQfD/BQggAL4uy3N2Jn3gkyCzLctKzU+dm61uburgPrGfMraTkPgITCbsZ2Kb0wQ7Y9rRX6UoDt809Ks7bwVmASZV5HUxOjo6s7engAy7jhrgC8wJ8JM1naWO0kkJtz1owTRKbSTpJ21nXdRkrZlpS6cnVhp/GoETWP0vOOsKTRAHinMZGx70TfmIKElfYg6FuIyrSBKIjCvqfbI+Fh2pbnb0qYx4hvzMWvbDYF5kCudJH24+hANwgUyCcwhOtKphASuByCzGdtZSuIaiCheZoRLw0rmglT7wDfmA9DFFYBP+OMvZW1n0TemHekMapq+dg9EA+Br52AX4zHfa7UAkXVgH/A0cf2kY2JDO1SgjPAE1Yqo3o/Hem7hBrAIfEO5Vd2uHTDkmhjYLJ7rllGeibKM6p0f2/XfUUxXXHUDpVTdru0kdaSTpO82nXZdSyAUh0pCHM8t3ASWUF1XKG3Waz8HVT8UkUAZeBoT349iYidfBy1t1us7yf1/RXQ8LGyAlKqh+NC7qA+Rl3fLwHOgIkks+cJ1hDfhyaVUrW8NxHIUomvAa+BeHEtoehXlM3C7Wt8aiiVpPUHFfD7tHT44PS9UMZ+3vHwhnZw/yj/VR/9Yjfa/dqqP/h9BAkvZBR5HnwAAAABJRU5ErkJggg==") no-repeat left center transparent;
+        background-size: 100% 100%;
+    }
+    #information{
+        position: absolute;
+        margin-left: 500px;
+        margin-top: 1vh;
+        top: 0px;
+        /* padding: 240px 50px; */
+        background-color: darksalmon;
+        text-align: center;
+    }
+    .describe{
+        position: relative;
+        left: 0px;
+        padding: 20px 10px;
+        background-color: darkseagreen;
+        text-align: left;
+    }
+    #setting{
+        position: absolute;
+        margin-left: 500px;
+        top: 0px;
+        background-color: darkslategray;
+    }
+    #intro{
+        font-size: 18px;
+        font-family: Verdana;
+        color: rgb(197, 146, 36);
+        /* text-shadow: 10px 2px 5px black; */
+        background-color: white;
+    }
+</style>
+
+<body align="center">
+    <div class="up" style="border-width:10px;border-style:groove;border-color:#3369E9">
+        <div style="line-height:  200px;">
+            <img src="標題畫面.png" style="width: 50vh;height: 10vh;">
+        </div>
+        <div>
+            <img src="Hnet-image.gif" style="height:35vh;width:25vw"></img>
+        </div>
+        <div>
+            <strong id = 'intro'>Made by 劉彥甫、楊敦傑、金聖家</strong>
+        </div>
+        <div id = 'information' hidden>
+            <h1>遊玩規則</h1>
+            <div class="describe">
+                按"C"保存方塊<br>
+                按"P"暫停<br>
+                按"上"旋轉<br>
+                按"下"加速掉落<br>
+                按"左"往左移動<br>
+                按"右"往右移動<br>
+                按"空白"放下<br>
+                按"B"使用炸彈<br>
+                前3000分中，每得到1000分方塊下落速度會加快<br>
+                前五分鐘，每一分鐘會增加一層障礙<br>
+            </div>
+        </div>
+        <div style="margin-top :4vh;">
+            <a class="button" style="height:30px;width:200px;" href="play.html" >進入遊戲</a>
+            <br>
+            <br>
+            <a class = "button" style="height: 30px;width: 200px;" onclick="$('#information').hide()">設定</a>
+            <br>
+            <br>
+            <a class="button" style="height:30px;width:200px;" onclick="$('#information').show()">介紹</a>
+            <br>
+            <br>
+        </div>
+    </div>
+</body>
+<script>
+    
+</script>
+</html>
