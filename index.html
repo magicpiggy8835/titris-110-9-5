@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="jquery-ui.min.css">
+    <script src="jquery-ui.js"></script>
+    <title>俄羅斯方塊</title>
+</head>
+<style>
+    body{
+        background-color:rgb(148, 153, 226);
+    }
+    canvas{
+        height:85vh;
+        width:40vw;
+        font: 100rem;
+    }
+    #back{
+        height: 10vh;
+        width:20vw;
+    }
+    #start{
+        background-color:rgb(207, 207, 207);
+        height:90vh;
+        width:90vw;
+        font-size: 35rem;
+    }
+    #over{
+        height:600px;
+        width:950px;    
+    }
+    #star{
+        height:45vh;
+        width: 45vw;
+    }
+    #setting{
+        height:45vh;
+        width: 45vw;
+    }
+    #final{
+        font-size: 120px;
+        color: rgb(214, 77, 77);
+        
+    }
+    #title{
+        width: 80%;
+    }
+</style>
+<body align="center" ">
+    <table style="margin:auto" id="table">
+        <tr>
+            <td>
+                <img src="start.png" onclick='$("#drawplace").show();$("#back").show();init();pause = 0;$("#table").hide();$("#title").hide();
+                $("#dailog").dialog("close");$("#tyy_now").dialog("close");$("#text").dialog("close");' id="star" alt="press to start">
+            </td>
+            <td><img src="ddd.png" onclick='$("#tyy_now").dialog("open")' id="setting" alt="setting"></td>
+        </tr>
+    </table>
+    <strong id = 'final'> Final score :</strong>
+    
+    <canvas id="drawplace"></canvas>
+    <img src="標題畫面.png" id="title">
+    <img src="gameover.png" id="over" onclick="$('#drawplace').show();init();$('#final').hide();
+    $('#table').hide();
+    $('#over').hide();
+    $('#back').show()" alt="">
+    <br>
+    <a href="Untitled-1.html">
+        <img src="back.png" id ='back' alt="press to go back to title">
+    </a>
+    <div id="tyy_now">
+        <button onclick='$("#dailog").dialog("open")'>難度</button>
+        <button onclick='$("#text").dialog("open")'>說明</button>
+    </div>
+    <script src=main.js></script>
+    <div id="text">
+        按"C"保存方塊<br>
+        按"P"暫停<br>
+        按"上"旋轉<br>
+        按"下"加速掉落<br>
+        按"左"往左移動<br>
+        按"右"往右移動<br>
+        按"空白"放下<br>
+        按"B"使用炸彈<br>
+        前3000分中，每得到1000分方塊下落速度會加快<br>
+        前五分鐘，每一分鐘會增加一層障礙<br>
+    </div>
+    <div id="dailog" title="俄羅斯方塊">
+        <button  style="right: 0;position: absolute" class="ui-button ui-corner-all ui-widget"
+            onclick="$('#back').show();init();$('#dailog').dialog('close');$('#tyy_now').dialog('close');$('#text').dialog('close');$('#title').hide();
+            $('#drawplace').show();$('#table').hide();">Start</button>
+    </div>
+</body>
+<script>
+    $("#final").hide();
+    $("#over").hide();
+    // $("#drawplace").hide();
+    //$("#back").hide();
+    $("#star").hide();
+    init();
+    $('#setting').hide();
+    $('#title').hide();
+    $("#tyy_now").dialog({
+        autoOpen:false,
+        height:300,
+        width:300,
+    });
+    $("#text").dialog({
+        autoOpen:false,
+        height:300,
+        width:500,
+    });
+    $("#dailog").dialog({
+        height:200,
+        autoOpen:false,
+        buttons: [
+            {
+                text: "困難度",
+                click: () => {
+
+                }
+            },
+            {
+                text: "+",
+                click: () => {
+                    if (player.difficulty < 3) {
+                        $("#difficult").text(parseInt($("#difficult").text()) + 1);
+                        player.difficulty++;
+                    }
+                }
+            },
+            {
+                text: "0",
+                id: "difficult",
+                click: () => {
+
+                }
+            },
+            {
+                text: "-",
+                click: () => {
+                    if (player.difficulty > 0) {
+                        $("#difficult").text(parseInt($("#difficult").text()) - 1);
+                        player.difficulty--;
+                    }
+                }
+            },
+        ]
+    })
+    function code(aa){
+        Player.difficulty=aa;
+        $("#set").dialog("close");
+    }
+</script>
+</html>
